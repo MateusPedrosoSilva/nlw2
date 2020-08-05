@@ -1,4 +1,5 @@
 import express, { response } from 'express';
+import routes from './routes';
 
 const app = express();
 
@@ -13,9 +14,7 @@ app.use(express.json());
 // Route params => identificar um recurso. (Atualizar/deletar)
 // Query params -> paginação, outras informações de pesquisa basicamente
 
-app.get('/', (request, response) => {
-    return response.json({ message: 'Helloooooo!' });
-});
+app.use(routes);
 
 app.listen(3333, () => {
     console.log('🐺 Server running.')
